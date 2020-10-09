@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function check(str, bracketsConfig) {
+
+            '((()))()';
+            const config1 = [
+                ['(', ')']
+            ];
+            const config2 = [
+                ['(', ')'],
+                ['[', ']']
+            ];
+            const config3 = [
+                ['(', ')'],
+                ['[', ']'],
+                ['{', '}']
+            ];
+            const config4 = [
+                ['|', '|']
+            ];
+            const config5 = [
+                ['(', ')'],
+                ['|', '|']
+            ];
+            const config6 = [
+                ['1', '2'],
+                ['3', '4'],
+                ['5', '6'],
+                ['7', '7'],
+                ['8', '8']
+            ];
+            const config7 = [
+                ['(', ')'],
+                ['[', ']'],
+                ['{', '}'],
+                ['|', '|']
+            ];
+            let array = str.split('');
+            if (str.length % 2 != 0) return false;
+            const searchBrc = () => {
+                return array.reduce((previousValue, item, index, array) => {
+                    if (item == bracketsConfig[0][0]) {
+                        if (array[index + 1] == bracketsConfig[0][1]) return;
+                        else previousValue.push(item);
+                    } else previousValue.push(item);
+                }, []);
+            }
+            searchBrc();
+
+        }
+        console.log()
+    </script>
+</body>
+
+</html>
